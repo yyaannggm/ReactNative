@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import {
     StyleSheet,
     View,
@@ -13,60 +13,21 @@ export default class countDown extends Component {
     constructor(props) {
         super(props);
         this.state = {
- 			nric:"",
- 			it:"",
- 			isButtondisabled:false
+
         }
     }
-        render() {
+    render() {
+        let a = "qwertysdfgbfb"
+        let textLast = a.substr(-3, 3)
+        let text = a.substr(0, 5)
         return (
-                <View>
-                <TextInput 
-                style={styles.text}
-                placeholder = {"123"}
-                onEndEditing={this.endEdit}
-                value={this.state.nric}
-                onChangeText={(value)=>this.setState({nric:value})}            
-                />
-                
-				
-					<Button 
-					title="aButton"
-					 disabled={this.state.isButtondisabled}
-					/>
-					
-					{this.renderText()}
-					
-				<TextInput 
-                style={styles.text}
-                placeholder = {"123"}
-                value={this.state.it}
-                onChangeText={(value)=>this.setState({it:value})}            
-                />	
-                </View>
-                )
+            <View style={styles.text}>
+                <Text>{text}</Text>
+                <Text style={styles.last}>{textLast}</Text>
+            </View>
+        )
     }
 
-endEdit=()=>{
-	if (this.state.nric==="abc"){
-		return(
-			 this.setState({isButtondisabled:true})
-			)
-		}
-}
-
-renderText(){
-if(this.state.isButtondisabled==true){
-
-	
-	return(
-		<View>
-			<Text>123</Text>
-		</View>
-		)}
-		else{
-		return null}
-}
 
 
 
@@ -78,10 +39,13 @@ if(this.state.isButtondisabled==true){
 
 styles = StyleSheet.create({
 
-   text: {
-       marginTop:100, 
-       marginLeft:40,
-       width: 200,
-       fontSize: 30
-   }
+    text: {
+        marginTop: 100,
+        marginLeft: 40,
+        width: 200,
+        fontSize: 30
+    },
+    last: {
+        fontSize: 40
+    }
 });
