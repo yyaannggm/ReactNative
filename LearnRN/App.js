@@ -17,14 +17,13 @@ export default class countDown extends Component {
         }
     }
     render() {
-        let a = "qwertysdfgbfb"
-        let textLast = a.substr(-3, 3)
-        let text = a.substr(0, 5)
+        let array=["a","b","c","d","e","f","g"]
+                let str="12345667"
+                let noShow=array.length-4
         return (
             <View style={styles.text}>
-                <Text>{text}</Text>
-                <Text style={styles.last}>{textLast}</Text>
-            </View>
+                <Text>{str.length}</Text>
+                 </View>
         )
     }
 
