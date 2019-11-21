@@ -4,9 +4,13 @@ import {
     View,
     TextInput,
     Button,
-    Text
+    Text,
+    Dimensions
 } from 'react-native';
 
+
+const screenWidth = Dimensions.get('window').width;
+const screenHeight = Dimensions.get('window').height;
 
 
 export default class countDown extends Component {
@@ -17,13 +21,13 @@ export default class countDown extends Component {
         }
     }
     render() {
-        let array=["a","b","c","d","e","f","g"]
-                let str="12345667"
-                let noShow=array.length-4
+        let array = ["a", "b", "c", "d", "e", "f", "g"]
+        let str = "12345667"
+        let noShow = array.length - 4
         return (
-            <View style={styles.text}>
-                <Text>{str.length}</Text>
-                 </View>
+            <View>
+                <Text>{str.length}</Text>
+            </View>
         )
     }
 
