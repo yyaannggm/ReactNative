@@ -1,14 +1,6 @@
-import React, { PureComponent } from 'react';
-import { Text, View } from 'react-native';
-import styles from './VerifyCode.style';
+import React, { PureComponent } from 'react'
 
 export default class VerifyCode extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      verifyCode: '',
-    };
-  }
 
   downCount = () => {
     if (this.count >= 1) {
