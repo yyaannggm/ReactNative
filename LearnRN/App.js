@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 
-export default class VerifyCode extends PureComponent {
+export default class VerifyCode extends Component {
 
   downCount = () => {
     if (this.count >= 1) {
