@@ -1,3 +1,6 @@
+/* eslint-disable no-alert */
+/* eslint-disable handle-callback-err */
+/* eslint-disable react-native/no-inline-styles */
 import {
   AsyncStorage,
   FlatList,
@@ -37,16 +40,16 @@ class HomeScreen extends React.PureComponent {
       error: false,
       errorInfo: '',
       isUpdateModalVisable: false,
-    };;
+    };
   }
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
-        <View style={{ flex: 1, backgroundColor: '#c4c4c4' }}>
+      <View style={{flex: 1, backgroundColor: '#FFFFFF'}}>
+        <View style={{flex: 1, backgroundColor: '#c4c4c4'}}>
           <FlatList
             ref={flatList => (this._flatList = flatList)}
-            style={{ backgroundColor: '#fff' }}
+            style={{backgroundColor: '#fff'}}
             renderItem={this._renderItem}
             keyExtractor={this._keyExtractor}
             refreshing={false}
@@ -117,7 +120,7 @@ class HomeScreen extends React.PureComponent {
                     }
                   }
                 }
-              })
+              });
             }
           }
         } else {
@@ -126,7 +129,7 @@ class HomeScreen extends React.PureComponent {
           // });
         }
       })
-      .catch(error => { });
+      .catch(error => {});
   }
 
   _renderUpdateModal() {
@@ -152,95 +155,90 @@ class HomeScreen extends React.PureComponent {
               flexDirection: 'row',
               paddingLeft: 10,
               justifyContent: 'center',
-              alignItems: 'center',,
+              alignItems: 'center',
             }}>
             <TouchableOpacity
-            onPress={() => {
-              this.setState({ isUpdateModalVisable: false });
-            }}
-            style={{
-              position: 'absolute',
-              left: 10,
-              height: 40,
-              flexDirection: 'row',
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginLeft: 5,,
+              onPress={() => {
+                this.setState({isUpdateModalVisable: false});
+              }}
+              style={{
+                position: 'absolute',
+                left: 10,
+                height: 40,
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginLeft: 5,
               }}>
-              <Text style={{ fontSize: 14, color: '#333333', marginLeft: 5 }}>
-            close
+              <Text style={{fontSize: 14, color: '#333333', marginLeft: 5}}>
+                close
               </Text>
             </TouchableOpacity>
-        <Text
-          style={{
-            position: 'absolute',
-            fontSize: 16,
-            color: '#333333',
-            fontWeight: '600',
-          }}>
-          Tip
+            <Text
+              style={{
+                position: 'absolute',
+                fontSize: 16,
+                color: '#333333',
+                fontWeight: '600',
+              }}>
+              Tip
             </Text>
-      </View>
+          </View>
 
-      <Text
-        ref={ref => (this.textInput = ref)}
-        style={{
-          marginLeft: 15,
-          marginRight: 15,
-          height: 120,
-          color: '#333333',
-          fontSize: 15,
-          borderWidth: 1,
-          borderColor: '#E8EEF0',
-          backgroundColor: '#ffffff',
-          borderRadius: 4,
-          paddingLeft: 15,
-          paddingRight: 15,
-          paddingTop: 10,,
-        }}>
-        New version detected, update now?
+          <Text
+            ref={ref => (this.textInput = ref)}
+            style={{
+              marginLeft: 15,
+              marginRight: 15,
+              height: 120,
+              color: '#333333',
+              fontSize: 15,
+              borderWidth: 1,
+              borderColor: '#E8EEF0',
+              backgroundColor: '#ffffff',
+              borderRadius: 4,
+              paddingLeft: 15,
+              paddingRight: 15,
+              paddingTop: 10,
+            }}>
+            New version detected, update now?
           </Text>
-      <TouchableOpacity
-        onPress={() => {
-          this.checkPermission();
-        }}
-        style={{
-          paddingTop: 8,
-          paddingBottom: 8,
-          paddingLeft: 12,
-          paddingRight: 12,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#1097D5',
-          borderRadius: 4,,
-        }}>
-        <Text style={{ fontSize: 15, color: '#FFFFFF' }}>update</Text>
-      </TouchableOpacity>
-          </View >
-        </View >
-      </View >
+          <TouchableOpacity
+            onPress={() => {
+              this.checkPermission();
+            }}
+            style={{
+              paddingTop: 8,
+              paddingBottom: 8,
+              paddingLeft: 12,
+              paddingRight: 12,
+              justifyContent: 'center',
+              alignItems: 'center',
+              backgroundColor: '#1097D5',
+              borderRadius: 4,
+            }}>
+            <Text style={{fontSize: 15, color: '#FFFFFF'}}>update</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     );
   }
 
   checkPermission() {
-    this.setState({ isUpdateModalVisable: false });
+    this.setState({isUpdateModalVisable: false});
     try {
       //返回Promise类型
       const granted = PermissionsAndroid.check(
         PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
-      );;
-      granted
-        .then(data => {
-          //alert(data)
-          if (data) {
-            NativeModules.VersionModule.update();
-          } else {
-            this.requestReadPermission();
-          }
-        })
-        .catch(err => {
-          //this.show(err.toString())
-        });;
+      );
+      granted.then(data => {
+        //alert(data)
+        if (data) {
+          NativeModules.VersionModule.update();
+        } else {
+          this.requestReadPermission();
+        }
+      });
     } catch (err) {
       //this.show(err.toString())
     }
@@ -256,18 +254,17 @@ class HomeScreen extends React.PureComponent {
         //     'title': 'Need to storage permissions ',
         //     'message': 'Please agree with storage permissions '
         // }
-      );;
+      );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         //this.show("你已获取了读写权限")
         NativeModules.VersionModule.update();
       } else {
         //this.show("获取读写权限失败")
-        alert('Failed to get storage permission');;
+        alert('Failed to get storage permission');
       }
     } catch (err) {
       //this.show(err.toString())
-      alert(err.toString());;
+      alert(err.toString());
     }
   }
 }
-
