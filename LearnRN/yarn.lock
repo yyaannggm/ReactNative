@@ -1447,6 +1447,11 @@ balanced-match@^1.0.0:
   resolved "https://registry.npm.taobao.org/balanced-match/download/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
   integrity sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
 
+base-64@0.1.0, base-64@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npm.taobao.org/base-64/download/base-64-0.1.0.tgz#780a99c84e7d600260361511c4877613bf24f6bb"
+  integrity sha1-eAqZyE59YAJgNhURxId2E78k9rs=
+
 base64-js@^1.1.2, base64-js@^1.2.3:
   version "1.3.1"
   resolved "https://registry.npm.taobao.org/base64-js/download/base64-js-1.3.1.tgz#58ece8cb75dd07e71ed08c736abc5fac4dbf8df1"
@@ -1887,6 +1892,11 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     semver "^5.5.0"
     shebang-command "^1.2.0"
     which "^1.2.9"
+
+crypto-js@^3.1.9-1:
+  version "3.1.9-1"
+  resolved "https://registry.npm.taobao.org/crypto-js/download/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
+  integrity sha1-/aGedh/Ad+Af+/3G6f38WeiAbNg=
 
 cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   version "0.3.8"
@@ -2790,6 +2800,18 @@ glob-parent@^5.0.0:
   integrity sha1-HcmfDzmwBtPpLCwoQGg4Lwwg6VQ=
   dependencies:
     is-glob "^4.0.1"
+
+glob@7.0.6:
+  version "7.0.6"
+  resolved "https://registry.npm.taobao.org/glob/download/glob-7.0.6.tgz?cache=0&sync_timestamp=1573078079496&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fglob%2Fdownload%2Fglob-7.0.6.tgz#211bafaf49e525b8cd93260d14ab136152b3f57a"
+  integrity sha1-IRuvr0nlJbjNkyYNFKsTYVKz9Xo=
+  dependencies:
+    fs.realpath "^1.0.0"
+    inflight "^1.0.4"
+    inherits "2"
+    minimatch "^3.0.2"
+    once "^1.3.0"
+    path-is-absolute "^1.0.0"
 
 glob@^7.1.1, glob@^7.1.2, glob@^7.1.3:
   version "7.1.4"
@@ -4399,7 +4421,7 @@ min-document@^2.19.0:
   dependencies:
     dom-walk "^0.1.0"
 
-minimatch@^3.0.4:
+minimatch@^3.0.2, minimatch@^3.0.4:
   version "3.0.4"
   resolved "https://registry.npm.taobao.org/minimatch/download/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha1-UWbihkV/AzBgZL5Ul+jbsMPTIIM=
@@ -5095,7 +5117,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.npm.taobao.org/prop-types/download/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha1-UsQedbjIfnK52TYOAga5ncv/psU=
@@ -5169,6 +5191,27 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.9.0"
   resolved "https://registry.npm.taobao.org/react-is/download/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha1-IcqVYTmarQ/xp3AcAWg+jKmB7cs=
+
+react-native-fs@^2.16.2:
+  version "2.16.2"
+  resolved "https://registry.npm.taobao.org/react-native-fs/download/react-native-fs-2.16.2.tgz#a312ce5f418e6d91d13b51e50ba0c49b1da1ec79"
+  integrity sha1-oxLOX0GObZHRO1HlC6DEmx2h7Hk=
+  dependencies:
+    base-64 "^0.1.0"
+    utf8 "^3.0.0"
+
+react-native-pdf@^6.0.0:
+  version "6.0.1"
+  resolved "https://registry.npm.taobao.org/react-native-pdf/download/react-native-pdf-6.0.1.tgz#a7991846d276b1564c53525bd777d61a8e75a7e2"
+  integrity sha1-p5kYRtJ2sVZMU1Jb13fWGo51p+I=
+  dependencies:
+    crypto-js "^3.1.9-1"
+    prop-types "^15.5.10"
+
+react-native-sms@^1.10.0:
+  version "1.10.0"
+  resolved "https://registry.npm.taobao.org/react-native-sms/download/react-native-sms-1.10.0.tgz#ee7607e8ad36452f9d3aaa2005e69225857c15f0"
+  integrity sha1-7nYH6K02RS+dOqogBeaSJYV8FfA=
 
 react-native@0.60.5:
   version "0.60.5"
@@ -5497,6 +5540,19 @@ rimraf@~2.2.6:
   version "2.2.8"
   resolved "https://registry.npm.taobao.org/rimraf/download/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
+
+rn-app-upgrade@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npm.taobao.org/rn-app-upgrade/download/rn-app-upgrade-1.0.4.tgz#05b6bbcc89cf822096a07a0b58be7d38d6200edf"
+  integrity sha1-Bba7zInPgiCWoHoLWL59ONYgDt8=
+
+rn-fetch-blob@^0.11.2:
+  version "0.11.2"
+  resolved "https://registry.npm.taobao.org/rn-fetch-blob/download/rn-fetch-blob-0.11.2.tgz#bdc483bf1b0c3810d457983494a11fbada446679"
+  integrity sha1-vcSDvxsMOBDUV5g0lKEfutpEZnk=
+  dependencies:
+    base-64 "0.1.0"
+    glob "7.0.6"
 
 rsvp@^4.8.4:
   version "4.8.5"
@@ -6300,6 +6356,11 @@ use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.npm.taobao.org/use/download/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
   integrity sha1-1QyMrHmhn7wg8pEfVuuXP04QBw8=
+
+utf8@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npm.taobao.org/utf8/download/utf8-3.0.0.tgz#f052eed1364d696e769ef058b183df88c87f69d1"
+  integrity sha1-8FLu0TZNaW52nvBYsYPfiMh/adE=
 
 util-deprecate@~1.0.1:
   version "1.0.2"
