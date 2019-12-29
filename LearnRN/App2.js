@@ -1,5 +1,5 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-alert */
-/* eslint-disable handle-callback-err */
 /* eslint-disable react-native/no-inline-styles */
 import {
   AsyncStorage,
@@ -267,4 +267,5 @@ class HomeScreen extends React.PureComponent {
       alert(err.toString());
     }
   }
+  //http://play.google.com/store/apps/details?id=<package_name>
 }
