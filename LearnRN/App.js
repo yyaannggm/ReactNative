@@ -7,7 +7,7 @@ import {
   addDownLoadListener,
 } from 'rn-app-upgrade';
 
-//可通过RN.versionName获取apk版本号和远程版本号进行比较
+
 if(Android) {
   if(res.versionCode > versionCode) {
     upgrade(res.apkUrl);
