@@ -1,19 +1,49 @@
-import { 
-  upgrade,
-  versionName,
-  versionCode,
-  openAPPStore,
-  checkIOSUpdate,
-  addDownLoadListener,
-} from 'rn-app-upgrade';
-
-if(Android) {
-  if(res.versionCode > versionCode) {
-    upgrade(res.apkUrl);
+import React from 'react';
+import { StyleSheet, Dimensions, View } from 'react-native';
+import RNFetchBlob from 'rn-fetch-blob';
+import Pdf from 'react-native-pdf';
+ 
+export default class PDFExample extends React.Component {
+    render() {
+        const source = {uri:'http://samples.leanpub.com/thereactnativebook-sample.pdf',cache:true};
+        //const source = require('./test.pdf');  // ios only
+        //const source = {uri:'bundle-assets://test.pdf'};
+ 
+        //const source = {uri:'file:///sdcard/test.pdf'};
+        //const source = {uri:"data:application/pdf;base64,JVBERi0xLjcKJc..."};
+ 
+        return (
+            <View style={styles.container}>
+                <Pdf
+                    source={source}
+                    onLoadComplete={(numberOfPages,filePath)=>{
+                        console.log(`number of pages: ${numberOfPages}`);
+                    }}
+                    onPageChanged={(page,numberOfPages)=>{
+                        console.log(`current page: ${page}`);
+                    }}
+                    onError={(error)=>{
+                        console.log(error);
+                    }}
+                    onPressLink={(uri)=>{
+                        console.log(`Link presse: ${uri}`)
+                    }}
+                    style={styles.pdf}/>
+            </View>
+        )
   }
-} else {
-  const IOSUpdateInfo = await checkUpdate(appid, 当前版本号);
-  IOSUpdateInfo.code // -1: 未查询到该App 或 网络错误 1: 有最新版本 0: 没有新版本
-  IOSUpdateInfo.msg
-  IOSUpdateInfo.version
 }
+ 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        marginTop: 25,
+    },
+    pdf: {
+        flex:1,
+        width:Dimensions.get('window').width,
+        height:Dimensions.get('window').height,
+    }
+});
