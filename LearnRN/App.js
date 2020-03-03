@@ -7,7 +7,6 @@ import {
   addDownLoadListener,
 } from 'rn-app-upgrade';
 
-
 if(Android) {
   if(res.versionCode > versionCode) {
     upgrade(res.apkUrl);
